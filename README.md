@@ -5,14 +5,14 @@
 * UART Pins: Pin P1_5(TX) and P1_4(RX).
 * Application => Voltmeter. Voltage on PIN P14_0 is measured and result is printed over UART.
 * Setup:
-           3.3V
-            |
-            |  _ 10k Ohm
-           | |/
- P14_0---->|/|
-          / |
-            |
-           GND
+           3.3V<br />
+            |<br />
+            |  _ 10k Ohm<br />
+           | |/<br />
+ P14_0---->|/|<br />
+          / |<br />
+            |<br />
+           GND<br />
 ## Step 1: Download mbed CLI
 
 * [Mbed CLI](https://docs.mbed.com/docs/mbed-os-handbook/en/latest/dev_tools/cli/#installing-mbed-cli) - Download and install mbed CLI.
