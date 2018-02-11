@@ -21,7 +21,7 @@
 /******************************************************************** Globals */
 AnalogIn input(P14_0);
 DigitalOut led_flash(LED1);
-Serial device(P1_5, P1_4); // tx, rx
+Serial device(P0_5, P0_4); // tx, rx
 
 Thread thread1;
 
