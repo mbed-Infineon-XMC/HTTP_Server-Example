@@ -3,9 +3,27 @@
 
 // Network interface
 EthernetInterface net;
+Thread thread1;
+DigitalOut led_flash(LED1);
+
+/**
+ * Communication Thread
+ */
+void test_thread() {
+
+    /* Wait for message */
+    while(1) {
+        wait(0.5);
+        led_flash = !led_flash;
+    }
+}
 
 // Socket demo
 int main() {
+
+    /* Start Com Thread */
+    thread1.start(test_thread);
+
     // Bring up the ethernet interface
     printf("Ethernet socket example\n");
     net.connect();
