@@ -3,8 +3,8 @@
 This example shows how you can setup the Ethernet Interface on the XMC4500 Relax Kit to run a simple HTTP server.<br/><br/>
 
 
-The web-ui provides functionallity to toggle both Led's and see the actual status of the push buttons.
-Futhermore, the network time provided by an NTP server can be programmed into the internal RTC!
+The web-ui provides functionality to toggle both Led's and see the actual status of the push buttons.
+Furthermore, the network time provided by an NTP server can be programmed into the internal RTC!
 
 ![](https://github.com/hackdino/mbed_xmc_images/blob/master/http_example_3.png)
 
@@ -22,7 +22,7 @@ eth.set_network("192.168.1.40", "255.255.255.0", "192.168.1.2"); //IP-Address, N
 ```
 
 **NOTE:** Use this option when connecting directly with the ethernet interface on your PC!<br/>
-**NOTE:** Not forget to configure also a static IP-Adress on your PC. See Example:<br/>
+**NOTE:** Not forget to configure also a static IP-Address on your PC. See Example:<br/>
 
 ![](https://github.com/hackdino/mbed_xmc_images/blob/master/http_example_2.png)
 
@@ -32,15 +32,15 @@ Remove the 'STATIC_IP' to get an IP-Address from an DHCP server in your network.
 //#define STATIC_IP
 ```
 **NOTE:** Use this option when connectiing the XMC directly to an network switch!<br/>
-**NOTE:** Connect the stdio UART to see which IP-Address the XMC gets from the DHCP server! // TX: P0_5, RX: P0_4<br/>
+**NOTE:** Connect the STDIO UART to see which IP-Address the XMC gets from the DHCP server! // TX: P0_5, RX: P0_4<br/>
 
 ![](https://github.com/hackdino/mbed_xmc_images/blob/master/http_example_1.png)
 
 **NOTE** Wireshark and ICMP (Ping...) are very helpful tools to debug or monitor your application!
 
 * Known Bugs
-- Only works if ethernet cable is pluged-in during start-up! Workaround: Create thread to monitor the ethernet link!<br/>
-- Click to the 'Toggle Led' button at the same time when the web-page is refreching can cause a missing button request because the TCP-Socket is already in used!
+- Only works if ethernet cable is plugged-in during start-up! Workaround: Create thread to monitor the ethernet link!<br/>
+- Click to the 'Toggle Led' button at the same time when the web-page is refreshing can cause a missing button request because the TCP-Socket is already in used!
 
 ## Step 1: Download mbed CLI
 
