@@ -39,7 +39,7 @@ Remove the 'STATIC_IP' to get an IP-Address from an DHCP server in your network.
 
 ![](https://github.com/hackdino/mbed_xmc_images/blob/master/http_example_1.png)
 
-**NOTE** Wireshark and ICMP (Ping...) are very helpful tools to debug or monitor your application!
+**NOTE:** Wireshark and ICMP (Ping...) are very helpful tools to debug or monitor your application!
 
 * Known Bugs
 - Only works if ethernet cable is plugged-in during start-up! Workaround: Create thread to monitor the ethernet link!<br/>
