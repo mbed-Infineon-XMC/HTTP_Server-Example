@@ -15,6 +15,9 @@ Define 'STATIC_IP' and configure IP-Address, Network-Mask and Default Gateway.
 The default server is 2.pool.ntp.org and the default port is 123.<br/>
 
 
+![See NTP Client library](https://github.com/ARMmbed/ntp-client)
+
+
 ```
 #define STATIC_IP
 
