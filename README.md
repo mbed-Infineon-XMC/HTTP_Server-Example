@@ -14,7 +14,7 @@ Define 'STATIC_IP' and configure IP-Address, Network-Mask and Default Gateway.
 ```
 #define STATIC_IP
 
-eth.set_network("192.168.1.40", "255.255.255.0", "192.168.1.2");
+eth.set_network("192.168.1.40", "255.255.255.0", "192.168.1.2"); //IP-Address, Network-Mask, Gateway
 ```
 
 **NOTE:** Use this option when connectiing directly with the ethernet interface on your PC!<br/>
