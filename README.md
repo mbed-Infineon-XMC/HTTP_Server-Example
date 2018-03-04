@@ -11,13 +11,17 @@ Futhermore, the network time provided by an NTP server can be programmed into th
 * Static IP Address<br/>
 Define 'STATIC_IP' and configure IP-Address, Network-Mask and Default Gateway.
 
+**NOTE** The NTP client maybe not work because the connection to the default NTP server is not possible!<br/>
+The default server is 2.pool.ntp.org and the default port is 123.<br/>
+
+
 ```
 #define STATIC_IP
 
 eth.set_network("192.168.1.40", "255.255.255.0", "192.168.1.2"); //IP-Address, Network-Mask, Gateway
 ```
 
-**NOTE:** Use this option when connectiing directly with the ethernet interface on your PC!<br/>
+**NOTE:** Use this option when connecting directly with the ethernet interface on your PC!<br/>
 **NOTE:** Not forget to configure also a static IP-Adress on your PC. See Example:<br/>
 
 ![](https://github.com/hackdino/mbed_xmc_images/blob/master/http_example_2.png)
