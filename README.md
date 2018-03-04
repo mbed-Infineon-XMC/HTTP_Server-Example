@@ -2,6 +2,8 @@
 
 This example shows how you can setup the Ethernet Interface on the XMC4500 Relax Kit to run a simple HTTP server.
 
+![](https://github.com/hackdino/mbed_xmc_images/blob/master/http_example_3.png)
+
 The web-ui provides functionallity to toggle both Led's and see the actual status of the push buttons.
 Futhermore, the network time provided by an NTP server can be programmed into the internal RTC!
 
@@ -22,6 +24,9 @@ Remove the 'STATIC_IP' to get an IP-Address from an DHCP server in your network.
 ```
 //#define STATIC_IP
 ```
+
+
+![](https://github.com/hackdino/mbed_xmc_images/blob/master/http_example_1.png)
 
 ## Step 1: Download mbed CLI
 
