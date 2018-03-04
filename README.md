@@ -8,7 +8,7 @@ Futhermore, the network time provided by an NTP server can be programmed into th
 
 ![](https://github.com/hackdino/mbed_xmc_images/blob/master/http_example_3.png)
 
-* Static IP Address<br/>
+# Static IP Address<br/>
 Define 'STATIC_IP' and configure IP-Address, Network-Mask and Default Gateway.
 
 **NOTE** The NTP client maybe not work because the connection to the default NTP server is not possible!<br/>
@@ -26,7 +26,7 @@ eth.set_network("192.168.1.40", "255.255.255.0", "192.168.1.2"); //IP-Address, N
 
 ![](https://github.com/hackdino/mbed_xmc_images/blob/master/http_example_2.png)
 
-* Dynamic IP Address<br/>
+# Dynamic IP Address<br/>
 Remove the 'STATIC_IP' to get an IP-Address from an DHCP server in your network.
 ```
 //#define STATIC_IP
