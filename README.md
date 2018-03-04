@@ -35,7 +35,7 @@ Remove the 'STATIC_IP' to get an IP-Address from an DHCP server in your network.
 //#define STATIC_IP
 ```
 **NOTE:** Use this option when connectiing the XMC directly to an network switch!<br/>
-**NOTE:** Connect the STDIO UART to see which IP-Address the XMC gets from the DHCP server! // TX: P0_5, RX: P0_4<br/>
+**NOTE:** Connect the STDIO UART to see which IP-Address the XMC gets from the DHCP server! // TX: P0_5, RX: P0_4 9600 8N1<br/>
 
 ![](https://github.com/hackdino/mbed_xmc_images/blob/master/http_example_1.png)
 
