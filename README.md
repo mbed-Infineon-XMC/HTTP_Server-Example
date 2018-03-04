@@ -7,7 +7,7 @@ This example shows how you can setup the Ethernet Interface on the XMC4500 Relax
 The web-ui provides functionallity to toggle both Led's and see the actual status of the push buttons.
 Futhermore, the network time provided by an NTP server can be programmed into the internal RTC!
 
-* Static IP Address
+* Static IP Address<br/>
 Define 'STATIC_IP' and configure IP-Address, Network-Mask and Default Gateway.
 
 ```
@@ -19,7 +19,7 @@ eth.set_network("192.168.1.40", "255.255.255.0", "192.168.1.2");
 **NOTE:** Use this option when connectiing directly with the ethernet interface on your PC!
 **NOTE:** Not forget to configure also a static IP-Adress on your PC. See Example:
 
-* Dynamic IP Address
+* Dynamic IP Address<br/>
 Remove the 'STATIC_IP' to get an IP-Address from an DHCP server in your network.
 ```
 //#define STATIC_IP
