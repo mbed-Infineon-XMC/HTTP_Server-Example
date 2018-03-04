@@ -19,6 +19,8 @@ eth.set_network("192.168.1.40", "255.255.255.0", "192.168.1.2");
 **NOTE:** Use this option when connectiing directly with the ethernet interface on your PC!<br/>
 **NOTE:** Not forget to configure also a static IP-Adress on your PC. See Example:<br/>
 
+![](https://github.com/hackdino/mbed_xmc_images/blob/master/http_example_2.png)
+
 * Dynamic IP Address<br/>
 Remove the 'STATIC_IP' to get an IP-Address from an DHCP server in your network.
 ```
