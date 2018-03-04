@@ -1,11 +1,12 @@
 # Simple HTTP Server Example
 
-This example shows how you can setup the Ethernet Interface on the XMC4500 Relax Kit to run a simple HTTP server.
+This example shows how you can setup the Ethernet Interface on the XMC4500 Relax Kit to run a simple HTTP server.<br/><br/>
 
-![](https://github.com/hackdino/mbed_xmc_images/blob/master/http_example_3.png)
 
 The web-ui provides functionallity to toggle both Led's and see the actual status of the push buttons.
 Futhermore, the network time provided by an NTP server can be programmed into the internal RTC!
+
+![](https://github.com/hackdino/mbed_xmc_images/blob/master/http_example_3.png)
 
 * Static IP Address<br/>
 Define 'STATIC_IP' and configure IP-Address, Network-Mask and Default Gateway.
