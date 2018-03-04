@@ -24,6 +24,10 @@
 #include "TCPServer.h"
 #include "TCPSocket.h"
 
+/******************************************************************** Defines */
+#define NTP_UPDATE_TIME         0x01
+#define STATIC_IP
+
 /************************************************************** HTTP Response */
 static char http_response[2048];
 static const char http_status_line[] = "HTTP/1.0 200 OK\r\n";
@@ -64,6 +68,9 @@ DigitalOut led1(LED1);
 DigitalOut led2(LED2);
 DigitalIn sw1(SW1);
 DigitalIn sw2(SW2);
+Thread ntp_thread;
+Thread bt_thread;
+EventFlags ntp_update_event;
 
 /****************************************************************** Functions */
 
@@ -113,6 +120,43 @@ static void change_timestamp_in_http_source(void){
 }
 
 /**
+ * NTP Client Thread
+ */
+void ntp_client_thread(EthernetInterface *eth) {
+
+    NTPClient ntp(eth);
+    time_t timestamp;
+
+    while (true) {
+        /* Wait until request from main thread */
+        ntp_update_event.wait_all(NTP_UPDATE_TIME);
+        /* Get Time from NTP server */
+        timestamp = ntp.get_timestamp(5000);
+        if (timestamp < 0) {
+            printf("An error occurred when getting the time. Code: %ld\r\n", timestamp);
+        } else {
+            /* Set RTC Time */
+            set_time(timestamp);
+            /* Print Time */
+            printf("Current time is %s\r\n", ctime(&timestamp));
+        }
+    }
+}
+
+/**
+ * Update Button state thread
+ */
+void button_thread(void) {
+
+    while (true) {
+
+        wait(1);
+        change_button_state_in_http_source();
+        change_timestamp_in_http_source();
+    }
+}
+
+/**
  * Main Function
  */
 int main()
@@ -121,19 +165,17 @@ int main()
     TCPSocket clt_sock;
     SocketAddress clt_addr;
     EthernetInterface eth;
-    time_t timestamp;
     char rec_buffer[256];
     int rcount;
 
     printf("Basic HTTP server example\n");
 
-    eth.set_network("192.168.1.40", "255.255.255.0","192.168.1.2");
+#ifdef STATIC_IP
+    eth.set_network("192.168.1.40", "255.255.255.0", "192.168.1.2");
+#endif
 
     /* Initialize low level Ethernet driver and lwip stack */
     eth.connect();
-
-    /* Initialize NTP Client */
-    NTPClient ntp(&eth);
 
     /* Print target IP address */
     printf("The target IP address is '%s'\n", eth.get_ip_address());
@@ -149,6 +191,14 @@ int main()
 
     /* Set RTC time to 1 Jan 1970 */
     set_time(0);
+    /* Update timestamp in http source */
+    change_timestamp_in_http_source();
+
+    /* start NTP client thread */
+    ntp_thread.start(callback(ntp_client_thread, &eth));
+
+    /* start button update thread */
+    bt_thread.start(button_thread);
 
     while (true) {
         /* Wait until request from client */
@@ -161,31 +211,19 @@ int main()
         /* Check if LED1 toggle button was clicked */
         if(strstr(rec_buffer, "toggle1") != NULL){
             led1 = !led1;
-            clt_sock.send(http_status_line, strlen(http_response));
             continue;
         }
         /* Check if LED2 toggle button was clicked */
         if(strstr(rec_buffer, "toggle2") != NULL){
             led2 = !led2;
-            clt_sock.send(http_status_line, strlen(http_response));
             continue;
         }
         /* Check if Set Time button was clicked */
         if(strstr(rec_buffer, "set_time") != NULL){
-            timestamp = ntp.get_timestamp();
-            if (timestamp < 0) {
-                printf("An error occurred when getting the time. Code: %ld\r\n", timestamp);
-            } else {
-                set_time(timestamp);
-                printf("Current time is %s\r\n", ctime(&timestamp));
-            }
-            clt_sock.send(http_status_line, strlen(http_response));
+            /* Notify NTP client thread to update time */
+            ntp_update_event.set(NTP_UPDATE_TIME);
             continue;
         }
-        /* Update timestamp in http source */
-        change_timestamp_in_http_source();
-        /* Update button state in http source */
-        change_button_state_in_http_source();
         /* Send HTTP response */
         clt_sock.send(http_response, strlen(http_response));
     }
