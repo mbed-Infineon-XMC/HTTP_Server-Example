@@ -2,7 +2,7 @@
 
 This example shows how you can setup the Ethernet Interface on the XMC4500 Relax Kit to run a simple HTTP server.
 
-![](https://github.com/hackdino/mbed_xmc_images/blob/master/http_example_1.png)
+![](https://drive.google.com/open?id=1XeoyhxaI3lvsDA9h2j6r1sGcjedKRz_K)
 
 ![](https://github.com/hackdino/mbed_xmc_images/blob/master/http_example_2.png)
 
