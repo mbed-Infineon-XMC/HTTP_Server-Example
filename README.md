@@ -16,15 +16,16 @@ Define 'STATIC_IP' and configure IP-Address, Network-Mask and Default Gateway.
 eth.set_network("192.168.1.40", "255.255.255.0", "192.168.1.2");
 ```
 
-**NOTE:** Use this option when connectiing directly with the ethernet interface on your PC!
-**NOTE:** Not forget to configure also a static IP-Adress on your PC. See Example:
+**NOTE:** Use this option when connectiing directly with the ethernet interface on your PC!<br/>
+**NOTE:** Not forget to configure also a static IP-Adress on your PC. See Example:<br/>
 
 * Dynamic IP Address<br/>
 Remove the 'STATIC_IP' to get an IP-Address from an DHCP server in your network.
 ```
 //#define STATIC_IP
 ```
-
+**NOTE:** Use this option when connectiing the XMC directly to an network switch!<br/>
+**NOTE:** Connect the stdio UART to see which IP-Address the XMC gets from the DHCP server!<br/>
 
 ![](https://github.com/hackdino/mbed_xmc_images/blob/master/http_example_1.png)
 
