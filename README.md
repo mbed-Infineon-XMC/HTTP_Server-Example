@@ -36,6 +36,12 @@ Remove the 'STATIC_IP' to get an IP-Address from an DHCP server in your network.
 
 ![](https://github.com/hackdino/mbed_xmc_images/blob/master/http_example_1.png)
 
+**NOTE** Wireshark and ICMP (Ping...) are very helpful tools to debug or monitor your application!
+
+* Known Bugs
+- Only works if ethernet cable is pluged-in during start-up! Workaround: Create thread to monitor the ethernet link!<br/>
+- Click to the 'Toggle Led' button at the same time when the web-page is refreching can cause a missing button request because the TCP-Socket is already in used!
+
 ## Step 1: Download mbed CLI
 
 * [Mbed CLI](https://docs.mbed.com/docs/mbed-os-handbook/en/latest/dev_tools/cli/#installing-mbed-cli) - Download and install mbed CLI.
