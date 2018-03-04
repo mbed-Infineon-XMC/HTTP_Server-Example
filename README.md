@@ -2,15 +2,26 @@
 
 This example shows how you can setup the Ethernet Interface on the XMC4500 Relax Kit to run a simple HTTP server.
 
+The web-ui provides functionallity to toggle both Led's and see the actual status of the push buttons.
+Futhermore, the network time provided by an NTP server can be programmed into the internal RTC!
 
+* Static IP Address
+Define 'STATIC_IP' and configure IP-Address, Network-Mask and Default Gateway.
 
-![](https://github.com/hackdino/mbed_xmc_images/blob/master/http_example_1.png)
+```
+#define STATIC_IP
 
+eth.set_network("192.168.1.40", "255.255.255.0", "192.168.1.2");
+```
 
-![](https://github.com/hackdino/mbed_xmc_images/blob/master/http_example_3.png)
+**NOTE:** Use this option when connectiing directly with the ethernet interface on your PC!
+**NOTE:** Not forget to configure also a static IP-Adress on your PC. See Example:
 
-:information_source: You can change the default stack size, priority or task name as follows:<br />
-`Thread thread1(osPriorityNormal, 2048, NULL, "Error_Task");`
+* Dynamic IP Address
+Remove the 'STATIC_IP' to get an IP-Address from an DHCP server in your network.
+```
+//#define STATIC_IP
+```
 
 ## Step 1: Download mbed CLI
 
