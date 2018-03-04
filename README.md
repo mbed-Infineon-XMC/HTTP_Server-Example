@@ -2,9 +2,12 @@
 
 This example shows how you can setup the Ethernet Interface on the XMC4500 Relax Kit to run a simple HTTP server.
 
-![](https://drive.google.com/open?id=1XeoyhxaI3lvsDA9h2j6r1sGcjedKRz_K)
 
-![](https://github.com/hackdino/mbed_xmc_images/blob/master/http_example_2.png)
+
+![](https://github.com/hackdino/mbed_xmc_images/blob/master/http_example_1.png)
+
+
+![](https://github.com/hackdino/mbed_xmc_images/blob/master/http_example_3.png)
 
 :information_source: You can change the default stack size, priority or task name as follows:<br />
 `Thread thread1(osPriorityNormal, 2048, NULL, "Error_Task");`
