@@ -49,9 +49,9 @@ Remove the 'STATIC_IP' to get an IP-Address from an DHCP server in your network.
 
 * [Mbed CLI](https://docs.mbed.com/docs/mbed-os-handbook/en/latest/dev_tools/cli/#installing-mbed-cli) - Download and install mbed CLI.
 
-## Step 2: Import Heap_Stack_Statistics Example project
+## Step 2: Import HTTP Server Example project
 
-Import Heap_Stack_Statistics Example project from GitHub.
+Import HTTP Server Example Example project from GitHub.
 
 ```
 mbed import https://github.com/mbed-Infineon-XMC/HTTP_Server-Example.git
