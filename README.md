@@ -51,7 +51,7 @@ Remove the 'STATIC_IP' to get an IP-Address from an DHCP server in your network.
 
 ## Step 2: Import HTTP Server Example project
 
-Import HTTP Server Example Example project from GitHub.
+Import HTTP Server Example project from GitHub.
 
 ```
 mbed import https://github.com/mbed-Infineon-XMC/HTTP_Server-Example.git
